@@ -70,9 +70,9 @@
 					</execution>
 				</executions>
 				<configuration>
-					<username>nirajsonawane</username>
-					<password>XXXX</password>
-					<repository>registry.hub.docker.com/nirajsonawane/${project.artifactId}</repository>
+					<username>vinhbk99nd</username>
+					<password>vinhbk99nd</password>
+					<repository>registry.hub.docker.com/vinhbk99nd/${project.artifactId}</repository>
 					<tag>${project.version}</tag>
 					<buildArgs>
 						<JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
