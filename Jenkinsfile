@@ -32,7 +32,7 @@ pipeline {
 			steps {
 				echo 'testing your app!'
 				sh 'docker  push vinhbk99nd/student-app-client'
-				sh "docker push registry.hub.docker.com/source/vinhbk99nd/student-app-api"
+				sh 'docker push registry.hub.docker.com/source/vinhbk99nd/student-app-api'
 			}
 	}
    }
