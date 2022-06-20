@@ -20,8 +20,9 @@ pipeline {
 			steps {
 				echo 'building your app!'
 				sh 'docker version'
-				sh 'docker build -t vinhbk99nd/student-app-api'
-				  
+				dir ("spring-boot-student-app-api"){
+				sh 'docker build -t vinhbk99nd/student-app-api .'
+				  }
 				}
 			}
 	stage('Push') {
