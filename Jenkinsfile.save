@@ -21,18 +21,16 @@ pipeline {
 				echo 'building your app!'
 				sh 'docker version'
 				dir ("spring-boot-student-app-api"){
-				sh 'mvn clean package .'
-				
+				sh 'mvn clean package'
 				  }
 				dir ("react-student-management-web-app"){
-				sh 'docker build -t "vinhbk99nd/student-app-client" .'
+				sh 'docker build -t 
 				}
 			}
 	stage('Push') {
 			steps {
 				echo 'testing your app!'
-				sh 'docker  push vinhbk99nd/student-app-client'
-				sh "docker push registry.hub.docker.com/source/vinhbk99nd/student-app-api"
+				sh 'docker  push vinhbk99nd/student-app-api'
 			}
 	}
    }
