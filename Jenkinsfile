@@ -14,8 +14,8 @@ pipeline {
                 git config --global push.default simple;\
                 git clone $BUILD_SCRIPTS_GIT repo/$BUILD_SCRIPTS"
             sh "chmod -R +x $WORKSPACE/repo/$BUILD_SCRIPTS"
-          }
-}
+        }
+				}
 	stage('Docker build'){
 			steps {
 				echo 'building your app!'
@@ -32,7 +32,7 @@ pipeline {
 	}
    }
  
-   }
+  
 	
   post {
     always {
