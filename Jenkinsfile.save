@@ -15,20 +15,22 @@ pipeline {
                 git clone $BUILD_SCRIPTS_GIT repo/$BUILD_SCRIPTS"
             sh "chmod -R +x $WORKSPACE/repo/$BUILD_SCRIPTS"
           }
-	stage('Docker build'){
+	stage('Build'){
 			steps {
 				echo 'building your app!'
-				sh 'docker version'
-				sh 'docker build -t vinhbk99nd/student-app-api'
-				  
+				kubectl apply -f .mongo
 				}
 			}
-	stage('Push') {
+	stage('Test') {
 			steps {
 				echo 'testing your app!'
-				sh 'docker  push vinhbk99nd/student-app-api'
 			}
 	}
+	stage('Deploy') {
+			steps {
+				echo 'deploying your app!'
+				}
+	} 
    }
  
    }
