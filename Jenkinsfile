@@ -11,19 +11,18 @@ pipeline {
                 git  'https://github.com/dangvinhnd99/kubernetes-full-stack-example.git' 
         }
 				}
-	stage('Docker build'){
+	stage('Mvn build'){
 			steps {
-				echo 'building your app!'
-				sh 'docker version'
+				echo 'building your app'
 				dir ("spring-boot-student-app-api"){
-				sh 'mvn package'
+				sh "mvn package"
 								 }
 			}
 				}
-	stage('Mvn build'){
+	stage('Docker build'){
 			steps {
 				dir ("react-student-management-web-app"){
-				sh 'docker build -t vinhbk99nd/student-app-client .'
+				sh "docker build -t vinhbk99nd/student-app-client ."
 				}
 			}
 	}
@@ -31,8 +30,8 @@ pipeline {
 	stage('Push') {
 			steps {
 				echo 'testing your app!'
-				sh 'docker  push vinhbk99nd/student-app-client'
-				sh 'docker push registry.hub.docker.com/source/vinhbk99nd/student-app-api'
+				sh "docker  push vinhbk99nd/student-app-client"
+				sh "docker push registry.hub.docker.com/source/vinhbk99nd/student-app-api"
 			}
 	}
    }
