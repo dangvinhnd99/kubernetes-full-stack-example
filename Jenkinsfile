@@ -8,8 +8,7 @@ pipeline {
   stages {
     stage('Checkout: Code') {
           steps {
-            sh "
-                git config --global user.email 'dangvinhnd99@gmail.com';\
+            sh  "git config --global user.email 'dangvinhnd99@gmail.com';\
                 git config --global user.name 'dangvinhnd99';\
                 git 'https://github.com/dangvinhnd99/kubernetes-full-stack-example.git' "
            
