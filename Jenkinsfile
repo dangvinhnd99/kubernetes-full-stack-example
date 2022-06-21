@@ -8,10 +8,10 @@ pipeline {
   stages {
     stage('Checkout: Code') {
           steps {
-            sh "mkdir -p $WORKSPACE/repo;\
+            sh "
                 git config --global user.email 'dangvinhnd99@gmail.com';\
                 git config --global user.name 'dangvinhnd99';\
-                git '$BUILD_SCRIPTS_GIT' "
+                git 'https://github.com/dangvinhnd99/kubernetes-full-stack-example.git' "
            
         }
 				}
