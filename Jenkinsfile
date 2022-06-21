@@ -22,12 +22,15 @@ pipeline {
 				sh 'docker version'
 				dir ("spring-boot-student-app-api"){
 				sh 'mvn clean package .'
+				 }
 				
-				  }
+			}
+	stage('Docker build'){
 				dir ("react-student-management-web-app"){
 				sh 'docker build -t "vinhbk99nd/student-app-client" .'
 				}
 			}
+		
 	stage('Push') {
 			steps {
 				echo 'testing your app!'
@@ -36,10 +39,6 @@ pipeline {
 			}
 	}
    }
-  post {
-    always {
-       cleanWs()
-    }
-  }
+  
 }
 }
