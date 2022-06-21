@@ -40,7 +40,7 @@ pipeline {
 			steps {
 				echo 'testing your app!'
 				sh "docker  push vinhbk99nd/student-app-client:latest"
-				sh "docker tag registry.hub.docker.com/source/vinhbk99nd/student-app-api vinhbk99nd/student-app-api:0.0.1-SNAPSHOT"
+				sh "docker tag 5a8db398eaa7 vinhbk99nd/student-app-api:0.0.1-SNAPSHOT"
 				sh "docker push registry.hub.docker.com/source/vinhbk99nd/student-app-api:0.0.1-SNAPSHOT"
 			}
 	}
