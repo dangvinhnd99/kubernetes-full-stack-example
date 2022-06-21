@@ -27,7 +27,14 @@ pipeline {
 			}
 	}
 		
-	stage('Push') {
+	stage('Login') {
+			steps {
+				echo 'Login dockerhub!'
+				
+				 sh 'docker login -u vinhbk99nd -p vinhbk99nd'
+			}
+	}
+	  stage('Push') {
 			steps {
 				echo 'testing your app!'
 				sh "docker  push vinhbk99nd/student-app-client"
