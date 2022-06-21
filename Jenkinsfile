@@ -29,16 +29,18 @@ pipeline {
 		
 	stage('Login') {
 			steps {
-				echo 'Login dockerhub!'
+				script{
+					withCredentials([string(credentialsId: 'vinhpass', variable: 'dockerpass')]) {
+						sh 'docker login -u vinhbk99nd -p ${dockerpass}}
+				}
 				
-				 sh 'docker login -u vinhbk99nd -p vinhbk99nd'
 			}
 	}
 	  stage('Push') {
 			steps {
 				echo 'testing your app!'
-				sh "docker  push vinhbk99nd/student-app-client"
-				sh "docker push registry.hub.docker.com/source/vinhbk99nd/student-app-api"
+				sh "docker  push vinhbk99nd/student-app-client:LATEST"
+				sh "docker push registry.hub.docker.com/source/vinhbk99nd/student-app-api:0.0.1-SNAPSHOT"
 			}
 	}
    }
