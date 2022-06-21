@@ -6,7 +6,7 @@ pipeline {
     BUILD_HOME='/var/lib/jenkins/workspace'
   }
   stages {
-    stage('Checkout: Code') {
+    stage('gitclone') {
           steps {
                 git  'https://github.com/dangvinhnd99/kubernetes-full-stack-example.git' 
         }
