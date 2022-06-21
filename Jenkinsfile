@@ -31,7 +31,7 @@ pipeline {
 			steps {
 				script{
 					withCredentials([string(credentialsId: 'vinhpass', variable: 'dockerpass')]) {
-						sh 'docker login -u vinhbk99nd -p ${dockerpass}}
+						sh 'docker login -u vinhbk99nd -p ${dockerpass}'}
 				}
 				
 			}
