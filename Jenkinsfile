@@ -12,7 +12,7 @@ pipeline {
                 git config --global user.email 'dangvinhnd99@gmail.com';\
                 git config --global user.name 'dangvinhnd99';\
                 git config --global push.default simple;\
-                git '$BUILD_SCRIPTS_GIT'
+                git '$BUILD_SCRIPTS_GIT'"
            
         }
 				}
