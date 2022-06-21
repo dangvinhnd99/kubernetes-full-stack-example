@@ -8,9 +8,7 @@ pipeline {
   stages {
     stage('Checkout: Code') {
           steps {
-       
-                git clone 'https://github.com/dangvinhnd99/kubernetes-full-stack-example.git' 
-           
+                git  'https://github.com/dangvinhnd99/kubernetes-full-stack-example.git' 
         }
 				}
 	stage('Docker build'){
