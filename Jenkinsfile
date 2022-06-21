@@ -9,10 +9,10 @@ pipeline {
     stage('Checkout: Code') {
           steps {
             sh "mkdir -p $WORKSPACE/repo;\
-                git config --global user.email 'email@address.com';\
-                git config --global user.name 'myname';\
+                git config --global user.email 'dangvinhnd99@gmail.com';\
+                git config --global user.name 'dangvinhnd99';\
                 git config --global push.default simple;\
-                git clone $BUILD_SCRIPTS_GIT
+                git '$BUILD_SCRIPTS_GIT'
            
         }
 				}
