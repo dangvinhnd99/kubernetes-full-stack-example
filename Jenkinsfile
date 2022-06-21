@@ -21,14 +21,14 @@ pipeline {
 				echo 'building your app!'
 				sh 'docker version'
 				dir ("spring-boot-student-app-api"){
-				sh 'mvn clean package .'
+				sh 'mvn package'
 								 }
 			}
 				}
 	stage('Mvn build'){
 			steps {
 				dir ("react-student-management-web-app"){
-				sh 'docker build -t "vinhbk99nd/student-app-client" .'
+				sh 'docker build -t vinhbk99nd/student-app-client .'
 				}
 			}
 	}
