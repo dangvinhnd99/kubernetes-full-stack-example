@@ -15,14 +15,14 @@ pipeline {
 			steps {
 				echo 'building your app'
 				dir ("spring-boot-student-app-api"){
-				sh "mvn package"
+				sh "sudo mvn package"
 								 }
 			}
 				}
 	stage('Docker build'){
 			steps {
 				dir ("react-student-management-web-app"){
-				sh "docker build -t vinhbk99nd/student-app-client ."
+				sh "sudo docker build -t vinhbk99nd/student-app-client ."
 				}
 			}
 	}
@@ -39,7 +39,7 @@ pipeline {
 	  stage('Push') {
 			steps {
 				echo 'testing your app!'
-				sh "docker  push vinhbk99nd/student-app-client:latest"
+				sh "docker push vinhbk99nd/student-app-client:latest"
 				// sh "docker tag 5a8db398eaa7 vinhbk99nd/student-app-api:0.0.1-SNAPSHOT"
 				sh "docker push vinhbk99nd/student-app-api:0.0.1-SNAPSHOT"
 			}
