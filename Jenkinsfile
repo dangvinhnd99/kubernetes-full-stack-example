@@ -15,7 +15,7 @@ pipeline {
 			steps {
 				echo 'building your app'
 				dir ("spring-boot-student-app-api"){
-				sh " mvn package"
+				sh " mvn install"
 								 }
 			}
 				}
