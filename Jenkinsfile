@@ -45,27 +45,27 @@ pipeline {
 			}
 	}
 	     stage("Add repo"){
-        sh 'helm repo add prometheus-community https://prometheus-community.github.io/helm-charts'
-        sh 'helm repo add bitnami https://charts.bitnami.com/bitnami'
-        sh 'helm repo add istio https://istio-release.storage.googleapis.com/charts'
-        sh 'helm repo update'
+        	sh 'helm repo add prometheus-community https://prometheus-community.github.io/helm-charts'
+        	sh 'helm repo add bitnami https://charts.bitnami.com/bitnami'
+        	sh 'helm repo add istio https://istio-release.storage.googleapis.com/charts'
+        	sh 'helm repo update'
     }
     
-    stage("Deployment istio"){
-        sh 'kubectl create namespace istio-system'
-        sh 'helm upgrade istio-base istio/base -n istio-system --install'
-        sh 'helm upgrade istiod istio/istiod -n istio-system --wait --install'
-        sh 'kubectl create namespace istio-ingress'
-        sh 'kubectl label namespace default istio-injection=enabled'
+   	      stage("Deployment istio"){
+       			sh 'kubectl create namespace istio-system'
+        		sh 'helm upgrade istio-base istio/base -n istio-system --install'
+        		sh 'helm upgrade istiod istio/istiod -n istio-system --wait --install'
+        		sh 'kubectl create namespace istio-ingress'
+        		sh 'kubectl label namespace default istio-injection=enabled'
     }
     
-    stage("Deployment react"){
+    		stage("Deployment react"){
 //         sh 'minikube start --driver=none --kubernetes-version v1.23.8'
-        sh 'helm upgrade poc helm-chart/ --install'
-        dir("helm-chart"){
-            sh 'kubectl apply -f istio_ingress.yaml'
+      		  sh 'helm upgrade poc helm-chart/ --install'
+       		 dir("helm-chart"){
+          	  sh 'kubectl apply -f istio_ingress.yaml'
         }
-        sh 'helm upgrade istio-ingress istio/gateway -f ip-external.yaml --install'
+       		 sh 'helm upgrade istio-ingress istio/gateway -f ip-external.yaml --install'
     }
     
     stage("Deployment prometheus"){
