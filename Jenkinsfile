@@ -45,7 +45,7 @@ pipeline {
 			}
 	}
 	   stage("Add repo"){
-		  	step{
+		  	steps{
         			sh 'helm repo add prometheus-community https://prometheus-community.github.io/helm-charts'
         			sh 'helm repo add bitnami https://charts.bitnami.com/bitnami'
         			sh 'helm repo add istio https://istio-release.storage.googleapis.com/charts'
