@@ -66,8 +66,8 @@ pipeline {
     	   stage("Deployment react"){
 		   	steps{
 //         sh 'minikube start --driver=none --kubernetes-version v1.23.8'
-      		 		sh 'helm upgrade poc helm-chart/ --install'
-       		 		dir("helm-chart"){
+      		 		sh 'helm upgrade vinhhelm helm_chart/ --install'
+       		 		dir("helm_chart"){
           	 		sh 'kubectl apply -f istio_ingress.yaml'
 		 }
        		 		sh 'helm upgrade istio-ingress istio/gateway -f ip-external.yaml --install'
