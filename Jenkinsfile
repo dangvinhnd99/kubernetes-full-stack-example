@@ -54,7 +54,7 @@ pipeline {
     }
     
    	   stage("Deployment istio"){
-		   	step{
+		   	steps{
        				sh 'kubectl create namespace istio-system'
         			sh 'helm upgrade istio-base istio/base -n istio-system --install'
         			sh 'helm upgrade istiod istio/istiod -n istio-system --wait --install'
@@ -64,7 +64,7 @@ pipeline {
     }
     
     	   stage("Deployment react"){
-		   	step{
+		   	steps{
 //         sh 'minikube start --driver=none --kubernetes-version v1.23.8'
       		 		sh 'helm upgrade poc helm-chart/ --install'
        		 		dir("helm-chart"){
@@ -75,14 +75,14 @@ pipeline {
     }
     
    	 stage("Deployment prometheus"){
-		 	step{
+		 	steps{
        				sh 'helm upgrade prometheus prometheus-community/prometheus --install'
         			sh 'kubectl expose service prometheus-server --type=NodePort --target-port=9090 --name=prometheus-server-np'
 //         sh 'minikube service prometheus-server-np'
 			}
     }     
     	 stage("Deployment graffana"){
-		 step{
+		 steps{
         		sh 'helm upgrade grafana bitnami/grafana --install'
         		sh 'kubectl expose service grafana --type=NodePort --target-port=3000 --name=grafana-np'
 		 }
