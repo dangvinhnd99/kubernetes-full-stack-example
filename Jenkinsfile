@@ -77,14 +77,14 @@ pipeline {
    	 stage("Deployment prometheus"){
 		 	steps{
        				sh 'helm upgrade prometheus prometheus-community/prometheus --install'
-        			sh 'kubectl expose service prometheus-server --type=NodePort --target-port=9090 --name=prometheus-server-np'
+        			// sh 'kubectl expose service prometheus-server --type=NodePort --target-port=9090 --name=prometheus-server-np'
 //         sh 'minikube service prometheus-server-np'
 			}
     }     
     	 stage("Deployment graffana"){
 		 steps{
         		sh 'helm upgrade grafana bitnami/grafana --install'
-        		sh 'kubectl expose service grafana --type=NodePort --target-port=3000 --name=grafana-np'
+        		//sh 'kubectl expose service grafana --type=NodePort --target-port=3000 --name=grafana-np'
 		 }
 //         sh 'echo "Password: $(kubectl get secret grafana-admin --namespace default -o jsonpath="{.data.GF_SECURITY_ADMIN_PASSWORD}" | base64 -d)"'
 //         sh 'minikube service grafana-np'
