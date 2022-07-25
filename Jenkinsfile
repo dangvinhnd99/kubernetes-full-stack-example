@@ -22,7 +22,7 @@ pipeline {
 	stage('Docker build'){
 			steps {
 				dir ("react-student-management-web-app"){
-				sh "docker build -t vinhbk99nd/student-app-client:0.0.1 ."
+				sh "docker build -t vinhbk99nd/student-app-client:0.0.2 ."
 				}
 			}
 	}
