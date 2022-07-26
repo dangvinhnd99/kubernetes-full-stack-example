@@ -9,7 +9,7 @@ api:
 client:
   name: student-app-client
   repCount: 1
-  image: vinhbk99nd/student-app-client:0.0.4
+  image: vinhbk99nd/student-app-client:0.0.5
   port: 80
   targetPort: 80
 
