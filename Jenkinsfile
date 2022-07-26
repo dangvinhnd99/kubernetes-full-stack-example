@@ -70,7 +70,7 @@ pipeline {
        		 		dir("helm_chart"){
           	 		sh 'kubectl apply -f istio_ingress.yaml'
 		 }
-       		 		sh 'helm upgrade istio-ingress istio/gateway -f ip-external.yaml --install'
+       		 		//sh 'helm upgrade istio-ingress istio/gateway -f ip-external.yaml --install'
 			}
     }
     
