@@ -39,7 +39,7 @@ pipeline {
 	  stage('Push') {
 			steps {
 				echo 'testing your app!'
-				sh "docker push vinhbk99nd/student-app-client:0.0.3"
+				sh "docker push vinhbk99nd/student-app-client:0.0.1"
 				// sh "docker tag 5a8db398eaa7 vinhbk99nd/student-app-api:0.0.1-SNAPSHOT"
 				sh "docker push vinhbk99nd/student-app-api:0.0.1-SNAPSHOT"
 			}
