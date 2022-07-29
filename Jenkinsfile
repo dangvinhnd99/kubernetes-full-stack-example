@@ -22,7 +22,7 @@ pipeline {
 	stage('Docker build'){
 			steps {
 				dir ("react-student-management-web-app"){
-				sh "docker build -t vinhbk99nd/student-app-client:0.0.5 ."
+				sh "docker build -t vinhbk99nd/student-app-client:0.0.6 ."
 				}
 			}
 	}
@@ -39,7 +39,7 @@ pipeline {
 	  stage('Push images client and api') {
 			steps {
 				echo 'testing your app!'
-				sh "docker push vinhbk99nd/student-app-client:0.0.5"
+				sh "docker push vinhbk99nd/student-app-client:0.0.6"
 				// sh "docker tag 5a8db398eaa7 vinhbk99nd/student-app-api:0.0.1-SNAPSHOT"
 				sh "docker push vinhbk99nd/student-app-api:0.0.1-SNAPSHOT"
 			}
