@@ -36,7 +36,7 @@ pipeline {
 				
 			}
 	}
-	  stage('Push') {
+	  stage('Push images client and api') {
 			steps {
 				echo 'testing your app!'
 				sh "docker push vinhbk99nd/student-app-client:0.0.5"
@@ -44,7 +44,7 @@ pipeline {
 				sh "docker push vinhbk99nd/student-app-api:0.0.1-SNAPSHOT"
 			}
 	}
-	   stage("Add repo"){
+	   stage("Add repository"){
 		  	steps{
         			sh 'helm repo add prometheus-community https://prometheus-community.github.io/helm-charts'
         			sh 'helm repo add bitnami https://charts.bitnami.com/bitnami'
@@ -63,7 +63,7 @@ pipeline {
 			}
     }
     
-    	   stage("Deployment react"){
+    	   stage("Deployment react file"){
 		   	steps{
 //         sh 'minikube start --driver=none --kubernetes-version v1.23.8'
       		 		sh 'helm upgrade vinhhelm helm_chart/ --install'
